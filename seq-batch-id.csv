@@ -1,4 +1,4 @@
-cohort,modality,batchN,FlowCell,ID
+cohort,modality,batchN,FlowCell,runID
 NABEC,snATAC,1,HJ2N2DMXY,AN00013175
 NABEC,snATAC,1,HJ73CDMXY,AN00013175
 NABEC,snRNA,1,HL7YMDSX5,AN00013174
