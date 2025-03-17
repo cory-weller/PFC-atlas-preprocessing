@@ -27,6 +27,8 @@ dat <- merge(dat, metadata)
 unused.files <- dat[used==FALSE]$fn
 
 stopifnot(length(unused.files) == 0)
+writeLines(sort(unique(dat$sample)), con='SAMPLES.txt')
+
 
 if(FALSE) {
     tar('unused_files.tar', files=unused.files, compression='none')
