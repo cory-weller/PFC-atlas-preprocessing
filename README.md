@@ -1,3 +1,14 @@
+# README
+
+## TODO
+- remove unnecessary files
+
+
+```bash
+
+
+
+```
 ```bash
 find /data/CARD_singlecell/Brain_atlas -maxdepth 4 -name '*RawData_Outs.tar' -exec du -sh {} \;
 
