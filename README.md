@@ -395,3 +395,9 @@ tar -tvf /data/CARD_singlecell/Brain_atlas/HBCC_multiome/batch1/.snapshot/weekly
 
 grep -F 'fastq.gz' hbcc-batch1-files.txt | awk '{print $6}' | cut -d '/' -f 4 | cut -d '_' -f 1 | sort -u
 ```
+
+# Run cellranger
+```bash
+cd /data/CARD_AUX/users/wellerca/PFC-atlas-preprocessing && \
+sbatch --array=1-358%20 run-cellranger-arc.sh
+```

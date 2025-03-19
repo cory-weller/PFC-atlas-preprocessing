@@ -9,7 +9,8 @@
 module load cellranger-arc/2
 
 N=${SLURM_ARRAY_TASK_ID}
-
+PROJDIR='/data/CARD_AUX/users/wellerca/PFC-atlas-preprocessing'
+cd $PROJDIR || { echo "Could not cd into $PROJDIR"; exit 1; }
 SAMPLEFILE='/data/CARD_AUX/users/wellerca/PFC-atlas-preprocessing/SAMPLES.txt'
 IID=$(sed -n ${N}p ${SAMPLEFILE})
 TMPDIR="/lscratch/${SLURM_JOB_ID}"
@@ -52,8 +53,8 @@ cellranger-arc count --id=${IID} \
 # - ATAC peak locations:                           ${IID}/outs/atac_peaks.bed
 # - ATAC smoothed transposition site track:        ${IID}/outs/atac_cut_sites.bigwig
 # - ATAC peak annotations based on proximal genes: ${IID}/outs/atac_peak_annotation.tsv
-find . > files.txt
-cp files.txt ${OUTDIR}
+# find . > files.txt
+# cp files.txt ${OUTDIR}
 
 cp "${IID}/outs/summary.csv" ${OUTDIR}
 cp "${IID}/outs/raw_feature_bc_matrix.h5" ${OUTDIR}
