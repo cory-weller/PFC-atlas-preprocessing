@@ -6,3 +6,4 @@ LINKS/
 CELLRANGER/
 trash/
 unused_files.tar
+slurm*out
