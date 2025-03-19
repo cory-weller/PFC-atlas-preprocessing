@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH --time 24:00:00
+#SBATCH --time 12:00:00
 #SBATCH --mem 80G
 #SBATCH --nodes 1
 #SBATCH --ntasks 1
@@ -10,7 +10,7 @@ module load cellranger-arc/2
 
 N=${SLURM_ARRAY_TASK_ID}
 
-SAMPLEFILE='/data/CARD_AUX/users/wellerca/PFC_data_upload/SAMPLES.txt'
+SAMPLEFILE='/data/CARD_AUX/users/wellerca/PFC-atlas-preprocessing/SAMPLES.txt'
 IID=$(sed -n ${N}p ${SAMPLEFILE})
 TMPDIR="/lscratch/${SLURM_JOB_ID}"
 OUTDIR="${PWD}/CELLRANGER/${IID}/"
@@ -21,7 +21,7 @@ cd $TMPDIR || exit 0
 
 
 REF='/fdb/cellranger-arc/refdata-cellranger-arc-GRCh38-2024-A'
-SAMPLESHEET="/data/CARD_AUX/users/wellerca/PFC_data_upload/SAMPLESHEETS/${IID}.csv"
+SAMPLESHEET="/data/CARD_AUX/users/wellerca/PFC-atlas-preprocessing/SAMPLESHEETS/${IID}.csv"
 
 echo "IID ${IID}"
 echo "TMPDIR ${TMPDIR}"
